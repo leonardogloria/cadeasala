@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title >{{ cidade }} - Selecione o Curso</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+   <ion-list inset>
+    <button ion-item *ngFor="let curso of cursos" (click)="itemSelected(curso)">
+      {{ curso }}
+    </button> 
+  </ion-list>
+
+</ion-content>

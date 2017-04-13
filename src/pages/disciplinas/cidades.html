@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Cidades</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-content padding>
+   <ion-list inset>
+    <button ion-item *ngFor="let cidade of cidades" (click)="itemSelected(cidade)">
+      {{ cidade }}
+    </button> 
+  </ion-list>
+</ion-content>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Minhas Disciplinas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--<ion-content padding>
+  <ion-list inset>
+    <button ion-item *ngFor="let disciplina of minhasDisciplinas" (click)="itemSelected(disciplina)">
+      {{ disciplina }}
+    </button> 
+  </ion-list>
+
+</ion-content>-->
+
+<ion-content padding>
+
+
+  <ion-list inset >
+  <ion-item-sliding  class="item-remove-animate item" #item  *ngFor="let disciplina of minhasDisciplinas">
+    <ion-item  class="item-remove-animate item" (click)="itemSelected(disciplina)">
+      {{ disciplina }}
+    </ion-item>
+   
+
+    <ion-item-options icon-right side="right">
+      <button ion-button color="danger" (click)="removeSelected(disciplina)">
+       <ion-icon name="trash"></ion-icon>
+
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+
+
+
+</ion-content>
