@@ -9,12 +9,18 @@ import { HomePage } from '../pages/home/home';
 import {LoginPage}  from '../pages/login-page/login-page';
 import {Register} from '../pages/register/register';
 import {AuthService} from '../providers/auth-service';
+import {CidadeService} from '../providers/cidade-service'
 import {Disciplina} from '../pages/disciplina/disciplina';
 import {Tabs } from '../pages/tabs/tabs';
 import {Configuracoes} from '../pages/configuracoes/configuracoes'
 import {Disciplinas} from '../pages/disciplinas/disciplinas';
 import {Cidades} from '../pages/disciplinas/cidades';
 import {Cursos} from '../pages/disciplinas/cursos';
+import { HttpModule } from '@angular/http';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +35,7 @@ import {Cursos} from '../pages/disciplinas/cursos';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -44,6 +51,7 @@ import {Cursos} from '../pages/disciplinas/cursos';
   providers: [
     StatusBar,
     SplashScreen,
+    CidadeService,
     AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
