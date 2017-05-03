@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{disciplina}}</ion-title>
+    <ion-title>Voltar</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -28,7 +28,7 @@
 
           </ion-col>
           <ion-col>
-             <ion-toggle value="foo" checked="true"></ion-toggle>
+             <h1>{{disciplina.nome}}</h1>
           </ion-col>
         </ion-row>
              
@@ -39,7 +39,7 @@
     <ion-card-content>
       <ion-grid>
         <ion-row>
-            <ion-col col-8>API - Altivo Cesar</ion-col>
+            <ion-col col-8>{{disciplina.tipo}} - {{disciplina.local}}</ion-col>
             <ion-col col-4></ion-col>
 
         </ion-row>

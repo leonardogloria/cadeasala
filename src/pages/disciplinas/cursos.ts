@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Disciplinas} from './disciplinas'
+import { IonicPage, NavController, NavParams, LoadingController,AlertController } from 'ionic-angular';
+import {Disciplinas} from './disciplinas';
+import {Http} from '@angular/http';
+
 
 /**
  * Generated class for the Disciplinas page.
@@ -15,20 +17,47 @@ import {Disciplinas} from './disciplinas'
 })
 export class Cursos {
     
-    public cursos:Array<string> = [
-        'Geografia',
-        'Pedagogia',
-        'Análise de Sistemas'
-    ]
-    
-    public cidade:string;
+    public cursos;
+    private _url:string = 'https://ab9la9wbm9.execute-api.us-east-1.amazonaws.com/v1/cidades/';
+    public cidade:any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
-        this.cidade = this.navParams.get('cidade')
+    constructor(public navCtrl: NavController, 
+                public navParams: NavParams,
+                private _http:Http, 
+                private _loadingController: LoadingController,
+                private _alertController: AlertController) {
+        
+        this.cidade = this.navParams.get('cidade');
+        let loader = this._loadingController.create({
+            content: "Carregando lista de cursos. Aguarde.",
+         });
+        loader.present();
+        this._http
+        .get(this._url + this.cidade.id + "/cursos")
+        .map(res => res.json())
+        .toPromise()
+        .then(result => {
+            this.cursos = result.Items
+            loader.dismiss();
+        },err =>{
+            console.log(err);
+            loader.dismiss();
+            let alert = this._alertController.create({
+            title: "Ops, Algo de errado aconteceu!",
+            subTitle: "Bad, bad server. No Donnuts for you!",
+            buttons: [{ text: 'OK'}]
+            });
+            alert.present()
+
+            }
+        )
+
+
     }
     itemSelected(curso){
         this.navCtrl.push(Disciplinas,{
-        curso:curso
+        curso:curso,
+        cidade:this.cidade
      })
     }
   

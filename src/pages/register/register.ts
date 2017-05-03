@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {RegisterService} from '../../providers/register-service';
+import {_POOL_DATA} from '../../config/config';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -13,7 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'register.html',
 })
 export class Register {
-
+  registerCredentials = {email: '', password: ''};
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

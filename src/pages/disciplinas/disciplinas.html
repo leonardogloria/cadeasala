@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ curso }} - Selecione a Disciplina </ion-title>
+    <ion-title>{{ curso.nome }} - Selecione a Disciplina </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,7 +20,7 @@
  <ion-list  inset>
   <ion-item-sliding  class="item-remove-animate item" #item  *ngFor="let disciplina of disciplinas">
     <ion-item  class="item-remove-animate item" (click)="itemSelected(disciplina)">
-      {{ disciplina }}
+      {{ disciplina.nome }}
     </ion-item>
    
 

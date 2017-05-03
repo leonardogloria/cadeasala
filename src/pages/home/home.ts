@@ -31,6 +31,7 @@ export class HomePage {
       this.minhasDisciplinas.splice(index, 1);
     }
   }
+  
 
 
 }

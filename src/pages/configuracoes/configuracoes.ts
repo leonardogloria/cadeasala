@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Storage} from '@ionic/storage'
+
 
 /**
  * Generated class for the Configuracoes page.
@@ -14,7 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Configuracoes {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    private _storage: Storage) {
+      let item = this._storage.get('lsilva@credilink.com.br')
+      .then((dado) => {
+        console.log(dado)
+      })
   }
 
   ionViewDidLoad() {

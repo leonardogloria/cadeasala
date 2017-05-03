@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AlertController,Loading,LoadingController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AuthService} from '../../providers/auth-service';
+import {Register} from '../register/register';
 import {HomePage} from '../home/home';
 /**
  * Generated class for the LoginPage page.
@@ -16,7 +17,17 @@ import {HomePage} from '../home/home';
 export class LoginPage {
   loading: Loading;
   registerCredentials = {email: '', password: ''};
-  constructor(private auth:AuthService,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private auth:AuthService,
+  private alertCtrl: AlertController, 
+  private loadingCtrl: LoadingController,public navCtrl: NavController, 
+  public navParams: NavParams) {
+  }
+ 
+  public createAccount(){
+    this.navCtrl.push(Register,{
+       
+    });
+
   }
   public login() {
     this.showLoading()
